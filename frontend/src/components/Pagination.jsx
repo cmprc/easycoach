@@ -44,13 +44,13 @@ const Pagination = memo(({
   };
 
   return (
-    <div className="flex items-center justify-center space-x-2">
+    <div className="flex items-center justify-center space-x-1 sm:space-x-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={!hasPrevPage}
-        className="px-4 py-2 rounded-xl text-sm font-semibold bg-white/80 text-slate-700 border border-slate-200/50 backdrop-blur-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+        className="px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold bg-white/80 text-slate-700 border border-slate-200/50 backdrop-blur-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
       >
-        <ChevronLeft className="w-4 h-4" />
+        <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4" />
       </button>
       
       {getPageNumbers().map((page, index) => (
@@ -58,7 +58,7 @@ const Pagination = memo(({
           key={index}
           onClick={() => typeof page === 'number' && onPageChange(page)}
           disabled={page === '...'}
-          className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 ${
+          className={`px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
             page === currentPage
               ? 'bg-slate-900 text-white shadow-lg'
               : page === '...'
@@ -73,9 +73,9 @@ const Pagination = memo(({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={!hasNextPage}
-        className="px-4 py-2 rounded-xl text-sm font-semibold bg-white/80 text-slate-700 border border-slate-200/50 backdrop-blur-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+        className="px-3 sm:px-4 py-2 rounded-lg sm:rounded-xl text-xs sm:text-sm font-semibold bg-white/80 text-slate-700 border border-slate-200/50 backdrop-blur-sm hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
       >
-        <ChevronRight className="w-4 h-4" />
+        <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4" />
       </button>
     </div>
   );
