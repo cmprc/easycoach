@@ -1,8 +1,8 @@
 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <pattern id="vintage-ball" patternUnits="userSpaceOnUse" width="32" height="32">
-      <image href="/src/assets/vintage-soccer-ball.png" width="32" height="32" preserveAspectRatio="xMidYMid slice"/>
+    <pattern id="logo" patternUnits="userSpaceOnUse" width="32" height="32">
+      <image href="/src/assets/logo.png" width="32" height="32" preserveAspectRatio="xMidYMid slice"/>
     </pattern>
   </defs>
-  <circle cx="16" cy="16" r="16" fill="url(#vintage-ball)"/>
+  <circle cx="16" cy="16" r="16" fill="url(#logo)"/>
 </svg> 

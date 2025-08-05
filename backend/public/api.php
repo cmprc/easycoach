@@ -32,13 +32,13 @@ $playerController = $container->get('playerController');
 
 // Router with proper error handling and validation
 try {
-    switch (true) {
-        case $path === '/api/health':
+switch (true) {
+    case $path === '/api/health':
             $response = $playerController->getHealthStatus();
             echo json_encode($response);
-            break;
+        break;
 
-        case $path === '/api/players':
+    case $path === '/api/players':
             // Validate and sanitize input parameters
             $page = max(1, (int)($_GET['page'] ?? 1));
             $perPage = min(50, max(1, (int)($_GET['perPage'] ?? 10)));
@@ -46,10 +46,10 @@ try {
 
             $result = $playerController->getAllPlayers($page, $perPage, $search);
             echo json_encode($result);
-            break;
+        break;
 
-        case preg_match('#^/api/players/(\d+)$#', $path, $matches):
-            $id = (int)$matches[1];
+    case preg_match('#^/api/players/(\d+)$#', $path, $matches):
+        $id = (int)$matches[1];
             
             if ($id <= 0) {
                 http_response_code(400);
@@ -64,7 +64,7 @@ try {
             
             if (!$player) {
                 http_response_code(404);
-                echo json_encode([
+        echo json_encode([
                     'error' => 'Player not found',
                     'message' => "Player with ID $id does not exist"
                 ]);
@@ -72,10 +72,10 @@ try {
             }
             
             echo json_encode($player);
-            break;
+        break;
 
-        case preg_match('#^/api/players/(\d+)/sessions$#', $path, $matches):
-            $id = (int)$matches[1];
+    case preg_match('#^/api/players/(\d+)/sessions$#', $path, $matches):
+        $id = (int)$matches[1];
             $page = max(1, (int)($_GET['page'] ?? 1));
             $perPage = min(50, max(1, (int)($_GET['perPage'] ?? 10)));
             
@@ -117,27 +117,27 @@ try {
             
             $result = $playerController->searchPlayers($search, $limit);
             echo json_encode($result);
-            break;
+        break;
 
-        default:
+    default:
             http_response_code(404);
-            echo json_encode([
+        echo json_encode([
                 'error' => 'Endpoint not found',
-                'message' => 'EasyCoach API',
-                'status' => 'active',
-                'version' => '1.0.0',
+            'message' => 'EasyCoach API',
+            'status' => 'active',
+            'version' => '1.0.0',
                 'architecture' => 'Layered (Controller-Service-Repository)',
                 'dependency_injection' => 'Container-based',
-                'endpoints' => [
+            'endpoints' => [
                     'GET /api/players' => 'List all players with pagination',
-                    'GET /api/players/{id}' => 'Get player details',
-                    'GET /api/players/{id}/sessions' => 'Get player sessions',
+                'GET /api/players/{id}' => 'Get player details',
+                'GET /api/players/{id}/sessions' => 'Get player sessions',
                     'GET /api/players/search' => 'Search players',
                     'GET /api/health' => 'Health check with database info'
-                ],
-                'timestamp' => date('Y-m-d H:i:s')
-            ]);
-            break;
+            ],
+            'timestamp' => date('Y-m-d H:i:s')
+        ]);
+        break;
     }
 } catch (Exception $e) {
     http_response_code(500);

@@ -66,9 +66,9 @@ class PlayerController
             $dbInfo = $dbConnection->getDatabaseInfo();
             
             return [
-                'status' => 'healthy',
-                'service' => 'EasyCoach API',
-                'timestamp' => date('Y-m-d H:i:s'),
+            'status' => 'healthy',
+            'service' => 'EasyCoach API',
+            'timestamp' => date('Y-m-d H:i:s'),
                 'version' => '1.0.0',
                 'optimized' => true,
                 'architecture' => 'Layered (Controller-Service-Repository)',

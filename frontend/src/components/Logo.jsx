@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import vintageSoccerBall from '../assets/vintage-soccer-ball.png';
+import logo from '../assets/logo.png';
 
 const Logo = memo(({ onClick, className = "" }) => {
   return (
@@ -16,11 +16,10 @@ const Logo = memo(({ onClick, className = "" }) => {
       }}
     >
       <img 
-        src={vintageSoccerBall} 
+        src={logo} 
         alt="EasyCoach Logo" 
-        className="h-8 w-8 object-contain"
+        className="h-10 w-10 object-contain"
       />
-      <span className="ml-2 text-xl font-bold text-slate-800">EasyCoach</span>
     </div>
   );
 });
